@@ -26,7 +26,6 @@ export default {
 
   getTemperature() {
     console.log("getTemperatureAction has been fired!");
-    console.log("superagent", superagent.get);
     let count = 0;
 
     setInterval(() => {
@@ -45,7 +44,7 @@ export default {
             });
           }
         });
-    }, 1500);
+    }, 11 *1000);
   }
 
 };

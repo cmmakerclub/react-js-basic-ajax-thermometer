@@ -42,11 +42,10 @@ export default class Thermometer extends Component {
     let data = {
       temperature: temp,
       bar: {
-        height: temp/60*300,
+        height: temp / 60 * 300,
       }
     };
     this.setState(data);
-    console.log("STATE: ", this.state);
   }
 
   render() {
