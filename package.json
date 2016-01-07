@@ -1,6 +1,6 @@
 {
   "name": "CMMC-React-App",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Example description",
   "repository": "NAzT/example-react-project",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "flux": "^2.0.3",
     "normalize.css": "^3.0.3",
     "react": "^0.13.3",
+    "react-addons-css-transition-group": "^0.14.6",
     "superagent": "^1.6.1"
   },
   "devDependencies": {

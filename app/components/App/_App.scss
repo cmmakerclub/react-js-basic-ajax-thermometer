@@ -1,6 +1,12 @@
 @import "toolkit";
 
 .app {
+  position: relative;
   font-size: inherit;
-  @include my-padding-mixin(20px);
+  display: block;
+  @include my-padding-mixin(0px);
+}
+
+body {
+  background-color: lightcyan;
 }

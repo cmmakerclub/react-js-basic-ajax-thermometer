@@ -2,6 +2,7 @@ import styles from './_Thermometer.scss';
 import React from 'react';
 import TemperatureStore from '../../stores/TemperatureStore'
 import AppAction from '../../actions/AppActions'
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 import "../../assets/thermometer0.png"
 
@@ -13,7 +14,10 @@ export default class Thermometer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      temperature: 50
+      temperature: 50,
+      bar: {
+        height: 100,
+      }
     };
   }
 
@@ -34,14 +38,27 @@ export default class Thermometer extends Component {
   };
 
   onChange() {
-    this.setState({temperature: TemperatureStore.getTemp()});
+    let temp = TemperatureStore.getTemp();
+    let data = {
+      temperature: temp,
+      bar: {
+        height: temp/60*300,
+      }
+    };
+    this.setState(data);
+    console.log("STATE: ", this.state);
   }
 
   render() {
     let structure = (
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <img className={styles.image} ref="img" src="../assets/thermometer0.png"/>
+          <div className={styles.imageWrapper}>
+            <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+              <div style={this.state.bar} className={styles.imageBar}></div>
+            </ReactCSSTransitionGroup>
+            <img className={styles.image} ref="img" src="../assets/thermometer0.png"/>
+          </div>
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.childTemperatureTextContainer}>

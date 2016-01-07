@@ -3,9 +3,30 @@
   flex-direction: row;
 }
 
-.image {
+
+.imageWrapper {
+  //background-color: #2f6fad;
+  position: relative;
   height: 322.66666666666667px;
   width: 69.33333333333333px;
+}
+
+.image {
+  position: absolute;
+  height: 322.66666666666667px;
+  width: 69.33333333333333px;
+}
+
+.imageBar {
+  width: 40px;
+  height: 200px;
+  background-color: dodgerblue;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  position: absolute;
 }
 
 .leftContainer {
@@ -14,7 +35,7 @@
   align-items: center;
   display: flex;
   flex: 1;
-  background-color: rosybrown;
+  background-color: darkslategrey;
 }
 
 .rightContainer {
