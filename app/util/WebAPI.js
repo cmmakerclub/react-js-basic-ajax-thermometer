@@ -1,3 +1,5 @@
+let superagent = require('superagent');
+
 export default {
 
   getItems() {
@@ -14,6 +16,20 @@ export default {
   },
 
   getTemperature() {
-
+    return new Promise((resolve, reject) => {
+      superagent
+        .get('/atmosphere')
+        .end(function (err, res) {
+          if (err || !res.ok) {
+            let data = {temp: -9, humid: -9};
+            console.log("REJECT", data);
+            reject(data);
+          }
+          else {
+            let data = res.text;
+            resolve(data);
+          }
+        });
+    });
   }
-};
+}
